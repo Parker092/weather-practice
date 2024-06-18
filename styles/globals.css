@@ -155,6 +155,15 @@ nav ul li {
   animation: flash 6s linear infinite;
 }
 
+/* Footer styles */
+footer {
+  @apply bg-gray-800 p-4 text-center text-white mt-8;
+}
+
+footer p {
+  @apply text-sm;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
   .card {
@@ -192,6 +201,10 @@ nav ul li {
   nav ul li {
     @apply text-sm;
   }
+
+  footer p {
+    @apply text-xs;
+  }
 }
 
 @media (max-width: 480px) {
@@ -228,6 +241,10 @@ nav ul li {
   }
 
   nav ul li {
+    @apply text-xs;
+  }
+
+  footer p {
     @apply text-xs;
   }
 }
