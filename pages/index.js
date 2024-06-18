@@ -1,23 +1,21 @@
 import Link from 'next/link';
-import { departments } from '../lib/departments';
-import Navbar from '../components/Navbar';
+import departments from '../lib/departments';
 
 export default function Home() {
   return (
-    <div>
-      <Navbar />
-      <main className="p-4">
-        <h1 className="text-3xl font-bold text-center mb-4">Select a Department</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+    <div className="min-h-screen flex items-center justify-center text-white">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold mb-6">Bienvenido al Dashboard del Clima de El Salvador</h1>
+        <nav className="flex flex-wrap justify-center gap-4">
           {departments.map((department) => (
-            <Link key={department.name} href={`/dashboard/${department.name}`} legacyBehavior>
-              <a className="p-4 border rounded-lg shadow-md text-center bg-gray-800 text-white">
+            <Link key={department.path} href={`/dashboard${department.path}`} legacyBehavior>
+              <a className="block p-4  rounded shadow hover:bg-blue-600 transition">
                 {department.name.replace(/-/g, ' ')}
               </a>
             </Link>
           ))}
-        </div>
-      </main>
+        </nav>
+      </div>
     </div>
   );
 }

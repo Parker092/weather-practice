@@ -8,10 +8,19 @@ const iconMapping = {
   "broken clouds": "CLOUDY",
   "shower rain": "RAIN",
   "rain": "RAIN",
-  "thunderstorm": "SLEET",
+  "thunderstorm": "RAIN",
   "snow": "SNOW",
   "mist": "FOG",
-  "overcast clouds": "CLOUDY"
+  "overcast clouds": "CLOUDY",
+  "light rain": "RAIN",
+  "moderate rain": "RAIN",
+  "heavy intensity rain": "RAIN",
+  "very heavy rain": "RAIN",
+  "extreme rain": "RAIN",
+  "light intensity drizzle": "RAIN",
+  "drizzle": "RAIN",
+  "heavy intensity drizzle": "RAIN",
+  "thunderstorm with light drizzle": "RAIN"
 };
 
 const bgMapping = {
@@ -21,10 +30,19 @@ const bgMapping = {
   "broken clouds": "bg-cloudy",
   "shower rain": "bg-rain",
   "rain": "bg-rain",
-  "thunderstorm": "bg-rain",
+  "thunderstorm": "bg-thunderstorm",
   "snow": "bg-snow",
   "mist": "bg-fog",
-  "overcast clouds": "bg-cloudy"
+  "overcast clouds": "bg-cloudy",
+  "light rain": "bg-rain",
+  "moderate rain": "bg-rain",
+  "heavy intensity rain": "bg-thunderstorm",
+  "very heavy rain": "bg-rain",
+  "extreme rain": "bg-rain",
+  "light intensity drizzle": "bg-drizzle",
+  "drizzle": "bg-drizzle",
+  "heavy intensity drizzle": "bg-drizzle",
+  "thunderstorm with light drizzle": "bg-thunderstorm-drizzle"
 };
 
 const DepartmentWeather = ({ department, isExpanded, onExpand }) => {
@@ -77,16 +95,13 @@ const DepartmentWeather = ({ department, isExpanded, onExpand }) => {
     return iconMapping[description.toLowerCase()] || "CLEAR_DAY";
   };
 
-  const getBgClass = (description, icon) => {
-    if (icon.endsWith("n")) {
-      return "bg-clear-night";
-    }
+  const getBgClass = (description) => {
     return bgMapping[description.toLowerCase()] || "bg-clear-day";
   };
 
   return (
     <div
-      className={`p-4 border rounded-lg shadow-md m-2 ${weatherData ? getBgClass(weatherData.weather[0].description, weatherData.weather[0].icon) : 'bg-clear-day'} ${isExpanded ? 'card-expanded' : 'card-collapsed'} card`}
+      className={`p-4 border rounded-lg shadow-md m-2 ${weatherData ? getBgClass(weatherData.weather[0].description) : 'bg-clear-day'} ${isExpanded ? 'card-expanded' : 'card-collapsed'} card`}
       onClick={onExpand}
     >
       <div className="card-content">
@@ -126,7 +141,7 @@ const DepartmentWeather = ({ department, isExpanded, onExpand }) => {
                 {weatherData.snow && <div>Snow (1h): {weatherData.snow['1h']} mm</div>}
                 <div>Sunrise: {new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString()}</div>
                 <div>Sunset: {new Date(weatherData.sys.sunset * 1000).toLocaleTimeString()}</div>
-                
+
                 {forecastData && (
                   <div className="forecast mt-4">
                     <h4 className="text-lg font-bold">3-Day Forecast</h4>
