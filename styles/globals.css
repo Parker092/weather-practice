@@ -27,7 +27,7 @@ nav {
 }
 
 nav ul {
-  @apply flex space-x-4;
+  @apply flex flex-wrap space-x-2 md:space-x-4 justify-center;
 }
 
 nav ul li {
@@ -155,4 +155,79 @@ nav ul li {
   animation: flash 6s linear infinite;
 }
 
+/* Responsive styles */
+@media (max-width: 768px) {
+  .card {
+    @apply p-2;
+  }
 
+  .weather-temp {
+    @apply text-2xl;
+  }
+
+  .weather-feels-like {
+    @apply text-lg;
+  }
+
+  .weather-description {
+    @apply text-base;
+  }
+
+  .expanded-info {
+    @apply text-sm;
+  }
+
+  .forecast h4 {
+    @apply text-base;
+  }
+
+  .forecast-day .text-center {
+    @apply text-sm;
+  }
+
+  nav ul {
+    @apply space-x-1;
+  }
+
+  nav ul li {
+    @apply text-sm;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    @apply p-1;
+  }
+
+  .weather-temp {
+    @apply text-xl;
+  }
+
+  .weather-feels-like {
+    @apply text-base;
+  }
+
+  .weather-description {
+    @apply text-sm;
+  }
+
+  .expanded-info {
+    @apply text-xs;
+  }
+
+  .forecast h4 {
+    @apply text-sm;
+  }
+
+  .forecast-day .text-center {
+    @apply text-xs;
+  }
+
+  nav ul {
+    @apply flex-wrap justify-center;
+  }
+
+  nav ul li {
+    @apply text-xs;
+  }
+}
