@@ -1,3 +1,5 @@
+/* styles/globals.css */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -30,4 +32,104 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.bg-clear-day {
+  background: linear-gradient(to top, #87ceeb, #fefcea);
+}
+
+.bg-clear-night {
+  background: linear-gradient(to top, #2c3e50, #34495e);
+}
+
+.bg-cloudy {
+  background: linear-gradient(to top, #bdc3c7, #2c3e50);
+}
+
+.bg-rain {
+  background: linear-gradient(to top, #3498db, #2980b9);
+}
+
+.bg-snow {
+  background: linear-gradient(to top, #ecf0f1, #bdc3c7);
+}
+
+.bg-fog {
+  background: linear-gradient(to top, #95a5a6, #7f8c8d);
+}
+
+.card-content {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-radius: 8px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-content:hover {
+  transform: scale(1.05);
+}
+
+.weather-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.weather-details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.weather-temp {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.weather-feels-like {
+  font-size: 1.2rem;
+}
+
+.weather-humidity {
+  font-size: 1.2rem;
+}
+
+.weather-description {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.expanded-info {
+  margin-top: 1rem;
+  text-align: left;
+  width: 100%;
+}
+
+.expanded-info div {
+  margin-bottom: 0.5rem;
+}
+
+.card {
+  transition: max-height 0.5s ease-in-out, height 0.5s ease-in-out, transform 0.5s ease-in-out;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card-expanded {
+  max-height: 500px;
+  height: auto;
+  transform: rotate(0deg) scale(1);
+}
+
+.card-collapsed {
+  max-height: 150px;
+  height: 150px;
+  transform: rotate(-2deg) scale(0.98);
 }
